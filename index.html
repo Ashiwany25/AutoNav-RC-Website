@@ -3,89 +3,59 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b1120">
-<title>AutoNav RC | Indoor Navigation Simulator</title>
+<meta name="theme-color" content="#0a1020">
+<meta name="description" content="AutoNav RC — Android-controlled indoor autonomous navigation simulator, featuring A* planning, saved maps, and safety monitoring.">
+<title>AutoNav RC — Control. Map. Navigate.</title>
 <style>
-:root{color-scheme:dark;font-family:Inter,system-ui,Arial,sans-serif}
-*{box-sizing:border-box}
-body{margin:0;background:#080e1b;color:#eaf0ff;line-height:1.65}
-header,main,footer{max-width:1050px;margin:auto;padding:24px}
-header{display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;font-size:22px;letter-spacing:.2px}
-.tag{color:#93c5fd;font-size:13px}
-.hero{padding:65px 24px 45px;text-align:center}
-h1{font-size:clamp(36px,6vw,64px);line-height:1.12;margin:12px 0}
-h2{font-size:26px;margin-top:0}
-p{color:#b8c5de}
-.hero p{max-width:660px;margin:18px auto 30px}
-.button{display:inline-block;padding:14px 28px;background:#2563eb;
-color:#fff;text-decoration:none;border-radius:12px;font-weight:750}
-.button:hover{background:#1d4ed8}
-.meta{margin:18px;color:#93a4be;font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.card{background:#111c31;border:1px solid #26364f;border-radius:18px;padding:24px}
-.card h3{margin:0 0 8px}
-section{margin:45px 0}
-.steps{padding-left:23px;color:#dce6f8}
-.steps li{padding:7px 0}
-.warning{border-left:4px solid #f59e0b;background:#282119;
-padding:20px;border-radius:10px}
-code{overflow-wrap:anywhere;color:#93c5fd}
-footer{border-top:1px solid #26364f;color:#93a4be;font-size:13px}
+:root{color-scheme:dark;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#090e1b;color:#eaf2ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse 60% 480px at 50% 0,#15264a 0%,#090e1b 100%);line-height:1.55}
+a{color:#91b9ff}a:focus-visible,button:focus-visible{outline:3px solid #7dd3fc;outline-offset:3px}nav,main,footer{max-width:1120px;margin:auto;padding-left:24px;padding-right:24px}nav{display:flex;gap:20px;align-items:center;justify-content:space-between;min-height:80px}nav strong{font-size:22px}nav .links{display:flex;gap:20px;flex-wrap:wrap}nav a{text-decoration:none;color:#c5d4eb;font-size:14px}
+.hero{padding:65px 0 80px;text-align:center}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:800;color:#78d8ff}h1{font-size:clamp(42px,8vw,78px);line-height:1.07;letter-spacing:-.055em;margin:15px 0 18px}.lead{color:#b8c7de;font-size:18px;max-width:670px;margin:0 auto 28px}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{border:1px solid #4367a0;border-radius:12px;background:#2b62d7;color:white;padding:13px 20px;text-decoration:none;font:700 15px inherit;cursor:pointer;font-weight:750;display:inline-block}.btn.secondary{background:#111e34}.btn:hover{filter:brightness(1.13)}.note{color:#94a7c4;font-size:13px;margin-top:16px}
+section{margin-bottom:70px}h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.025em;margin:0 0 10px}.sub{color:#a8bbd5;margin:0 0 25px}.grid{display:grid;gap:17px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.card,.panel{border:1px solid #2a3a57;background:#111a2c;border-radius:19px;padding:22px}.card h3{margin:6px 0;font-size:18px}.card p{color:#aabdd8;margin:7px 0 0;font-size:14px}.glyph{font-size:26px}.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.gallery figure{margin:0;background:#111a2c;border:1px solid #2a3a57;border-radius:16px;padding:12px}.gallery img{width:100%;height:300px;object-fit:contain;display:block;border-radius:9px;background:#070a12}.gallery figcaption{margin-top:10px;font-size:13px;color:#bdcce1;text-align:center}
+.demo-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}video{display:block;width:100%;max-height:480px;background:black;border-radius:12px}.gridwrap{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;max-width:440px;margin:16px auto}.cell{aspect-ratio:1;border:1px solid #354762;background:#24334b;border-radius:7px;color:#e6eefc;font-weight:800;cursor:pointer;padding:0;transition:background .12s}.cell.blocked{background:#64748b;cursor:pointer}.cell.route{background:#2563eb}.cell.goal{background:#c4334d}.cell.robot{background:#16a36a}.cell:hover{box-shadow:0 0 0 2px #9cc3fa}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:16px}.controls button{background:#233b61;border:1px solid #43628d;border-radius:9px;color:#fff;font:600 13px system-ui;padding:9px 12px;cursor:pointer}.controls button[aria-pressed="true"]{background:#2a65c9}.status{font-size:14px;font-weight:700;color:#a5e7c7;margin-top:12px;min-height:24px}.legend{color:#a8bad5;font-size:12px;margin-top:5px}.warning{padding:20px 24px;border-radius:14px;background:#2b231b;border-left:4px solid #fbbf24;color:#f5ddae}.warning p{margin:6px 0 0;color:#e6d2a7}.steps{color:#bccbe0;padding-left:22px}.steps li{margin:8px 0}.checksum{overflow-wrap:anywhere;color:#94a8c3;font-size:12px}footer{border-top:1px solid #263650;padding-top:26px;padding-bottom:36px;color:#9aabc3;font-size:13px}
+@media(max-width:800px){.demo-layout{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery img{height:280px}}@media(max-width:480px){.gallery img{height:230px}nav .links{gap:9px;font-size:12px}.hero{padding-top:45px}.gridwrap{gap:3px}}
 </style>
 </head>
 <body>
-<header><div class="logo">🚗 AutoNav RC</div>
-<div class="tag">Android + Python simulator</div></header>
+<nav aria-label="Main navigation"><strong>🚗 AutoNav RC</strong><div class="links"><a href="#screenshots">Screenshots</a><a href="#demo">Demo</a><a href="#download">APK</a></div></nav>
 <main>
-<div class="hero">
-<div class="tag">INDOOR AUTONOMOUS NAVIGATION PROJECT</div>
-<h1>Control. Map. Navigate.</h1>
-<p>Explore an Android-controlled indoor navigation simulator with
-saved occupancy maps, safe route planning, live virtual movement and
-emergency stop behavior.</p>
-<span class="button">Android APK — Development Preview</span>
-<div class="meta">Development simulator build · Android · Requires a paired local backend</div>
-</div>
-
-<section><h2>Features</h2><div class="grid">
-<div class="card"><h3>📱 Android control</h3>
-<p>Standalone Flutter app that connects to a local controller over HTTPS.</p></div>
-<div class="card"><h3>🗺️ Saved indoor map</h3>
-<p>Choose reachable destinations on a saved occupancy-grid map.</p></div>
-<div class="card"><h3>🧭 A* route planning</h3>
-<p>Plan safe virtual routes while preserving obstacle clearance.</p></div>
-<div class="card"><h3>🛑 Safety controls</h3>
-<p>STOP command, heartbeat monitoring and connection-loss handling.</p></div>
-<div class="card"><h3>🔐 Local pairing</h3>
-<p>Pair with a local backend using a temporary code and bearer authentication.</p></div>
-<div class="card"><h3>🔁 Dynamic replanning</h3>
-<p>Simulation support for changed destinations and detected obstacles.</p></div>
+<header class="hero"><div class="eyebrow">Android + Python · Indoor navigation simulator</div><h1>Control. Map.<br>Navigate.</h1><p class="lead">A phone-controlled autonomous navigation prototype with saved indoor maps, A* route planning, live simulated motion, and heartbeat-based safety controls.</p><div class="actions"><a class="btn" href="#demo">Try interactive demo</a><a class="btn secondary" href="#download">Android APK information</a></div><div class="note">Development demonstration · No physical motors connected</div></header>
+<section id="features"><h2>Explore the project</h2><p class="sub">Core functionality already demonstrated in the Android app and Python simulator.</p><div class="grid">
+<div class="card"><span class="glyph">📱</span><h3>Android app</h3><p>Standalone Flutter interface, local HTTPS connection, and paired controller activation.</p></div>
+<div class="card"><span class="glyph">🗺️</span><h3>Saved indoor map</h3><p>Choose a safe destination from an occupancy-grid representation.</p></div>
+<div class="card"><span class="glyph">🧭</span><h3>Route planning</h3><p>A* navigation, obstacle clearance, destination changes, and simulated replanning.</p></div>
+<div class="card"><span class="glyph">🛑</span><h3>Safety controls</h3><p>STOP, dedicated heartbeat timeout and connection-loss handling in the simulator.</p></div>
 </div></section>
-
-<section><h2>Installation</h2>
-<ol class="steps">
-<li>Download the APK on an Android phone.</li>
-<li>Allow installation from the selected source if Android requests it.</li>
-<li>Install and open <strong>AutoNav RC</strong>.</li>
-<li>Run the companion FastAPI backend on a trusted local network.</li>
-<li>Pair the phone and activate the controller through the app's settings.</li>
-<li>Open Saved Map Navigation, choose a safe cell and start simulation.</li>
-</ol></section>
-
-<section class="warning"><strong>Important: Development version</strong>
-<p>This build uses a development-specific controller address and trusted
-certificate. Installing the APK alone will not provide an operational
-controller. The car movements are currently simulated: no physical
-motors are controlled. Do not use this build to control an unattended
-physical vehicle. Public multi-device onboarding is not yet supported.</p>
-</section>
-
-<section><h2>Release integrity</h2>
-<p>The SHA-256 checksum is included in
-<a href="SHA256SUMS.txt" style="color:#93c5fd">SHA256SUMS.txt</a>.
-Compare it with the downloaded APK to verify file integrity.</p>
-</section>
-</main>
-<footer>AutoNav RC · Simulator development release · 2026</footer>
+<section id="screenshots"><h2>Actual Android app screenshots</h2><p class="sub">Frames taken from the AutoNav RC screen recording, not mockups.</p><div class="gallery">
+<figure><img loading="lazy" src="media/dashboard.webp" alt="AutoNav RC Android dashboard with controls"><figcaption>Home dashboard</figcaption></figure>
+<figure><img loading="lazy" src="media/manual-control.webp" alt="AutoNav RC Android manual control page"><figcaption>Manual control screen</figcaption></figure>
+<figure><img loading="lazy" src="media/navigation.webp" alt="AutoNav RC map with planned route on Android"><figcaption>Saved map navigation</figcaption></figure>
+<figure><img loading="lazy" src="media/route-progress.webp" alt="AutoNav RC progress and goal on navigation screen"><figcaption>Route progress</figcaption></figure>
+</div></section>
+<section id="demo"><h2>Watch and try the demo</h2><p class="sub">Watch actual app footage, then interact with a separate illustrative 6×6 A* map below.</p><div class="demo-layout">
+<div class="panel"><h3>Recorded Android demonstration</h3><video controls preload="metadata" playsinline poster="media/dashboard.webp"><source src="media/autonav-demo.mp4" type="video/mp4">Your browser does not support video playback.</video><p class="note">Recorded footage of the development app. Simulator only.</p></div>
+<div class="panel"><h3>Interactive 6×6 route planner</h3><p class="sub" style="margin-bottom:6px;font-size:13px">Select a free cell as the destination, or toggle obstacles. Press Start to see a sample virtual route.</p><div id="grid" class="gridwrap" role="group" aria-label="Interactive grid-based navigation demo"></div><div class="controls"><button type="button" id="mode" aria-pressed="false">Mode: Choose goal</button><button type="button" id="start">▶ Start</button><button type="button" id="stop">■ Stop</button><button type="button" id="reset">↺ Reset</button></div><div class="status" id="state" role="status" aria-live="polite">READY — Tap a destination</div><div class="legend">🟩 Robot · 🟥 Goal · 🟦 Route · Gray: obstacle · Sample map only</div></div>
+</div></section>
+<section id="download"><h2>Download the Android development APK</h2><p class="sub">For testing with the configured local AutoNav RC backend. Not a universal consumer release.</p><div class="panel"><a class="btn" href="AutoNav-RC.apk" download>Download AutoNav-RC.apk</a><p class="note">APK install alone does not start a robot or backend. This development build is pinned to a specific controller IP and certificate.</p><ol class="steps"><li>Install the APK on an Android phone after reviewing Android's install prompt.</li><li>Run the matching AutoNav RC FastAPI HTTPS server on a trusted local network.</li><li>Connect phone and server to the same Wi-Fi, pair with a local code, and activate the controller.</li><li>Open Saved Map Navigation to test simulated navigation and STOP behavior.</li></ol><p class="checksum">SHA-256 verification: <a href="SHA256SUMS.txt">SHA256SUMS.txt</a></p></div></section>
+<section class="warning" role="note"><strong>⚠️ Development-only project</strong><p>The public APK is configured for the original development controller and will not automatically connect to other users' hardware. The demonstration does not control a physical RC car. Real sensors, mapping/localization, motor control, emergency-stop hardware, and secure per-device onboarding remain future work. Never use this version as a safety-critical vehicle controller.</p></section>
+</main><footer>© 2026 AutoNav RC · Indoor autonomous navigation project · Simulator showcase</footer>
+<script>
+(()=>{
+const N=6,g=document.getElementById('grid'),status=document.getElementById('state'),modeButton=document.getElementById('mode');
+const originalWalls=['2,2','2,3','3,3','4,3'];
+let walls=new Set(originalWalls),robot=[1,1],goal=[4,4],path=[],step=0,timer=null,obstacleMode=false;
+const key=(r,c)=>`${r},${c}`,same=(a,b)=>a[0]===b[0]&&a[1]===b[1],dist=(a,b)=>Math.abs(a[0]-b[0])+Math.abs(a[1]-b[1]);
+function neighbors(p){return [[p[0]-1,p[1]],[p[0]+1,p[1]],[p[0],p[1]-1],[p[0],p[1]+1]].filter(a=>a[0]>=0&&a[0]<N&&a[1]>=0&&a[1]<N&&!walls.has(key(...a)));}
+function plan(){let open=[[...robot]],seen=new Map(),cost=new Map([[key(...robot),0]]);seen.set(key(...robot),null);while(open.length){open.sort((a,b)=>(cost.get(key(...a))+dist(a,goal))-(cost.get(key(...b))+dist(b,goal)));let p=open.shift(),k=key(...p);if(same(p,goal)){let r=[];while(k!==null){r.push(k);k=seen.get(k)}return r.reverse().map(v=>v.split(',').map(Number));}for(let q of neighbors(p)){let z=key(...q),nc=cost.get(k)+1;if(!cost.has(z)||nc<cost.get(z)){cost.set(z,nc);seen.set(z,k);if(!open.some(a=>same(a,q)))open.push(q)}}}return null;}
+function render(){g.replaceChildren();for(let r=0;r<N;r++)for(let c=0;c<N;c++){const b=document.createElement('button');b.type='button';b.className='cell';let v=key(r,c);if(walls.has(v))b.classList.add('blocked');else if(same(robot,[r,c])){b.classList.add('robot');b.textContent='R'}else if(same(goal,[r,c])){b.classList.add('goal');b.textContent='G'}else if(path.some(p=>same(p,[r,c])))b.classList.add('route');b.setAttribute('aria-label',`Row ${r+1}, column ${c+1}${walls.has(v)?', blocked':''}`);b.addEventListener('click',()=>select(r,c));g.appendChild(b)}}
+function stopMotion(){if(timer!==null){clearInterval(timer);timer=null}}
+function recalc(){path=plan()||[];render();status.textContent=path.length?`ROUTE READY — ${path.length-1} step(s)`:'BLOCKED — No route available'}
+function select(r,c){if(timer!==null)return;let k=key(r,c);if(obstacleMode){if(same(robot,[r,c])||same(goal,[r,c]))return;walls.has(k)?walls.delete(k):walls.add(k)}else{if(walls.has(k))return;goal=[r,c]}recalc()}
+modeButton.addEventListener('click',()=>{obstacleMode=!obstacleMode;modeButton.textContent=obstacleMode?'Mode: Toggle obstacles':'Mode: Choose goal';modeButton.setAttribute('aria-pressed',String(obstacleMode))});
+document.getElementById('start').addEventListener('click',()=>{if(timer!==null)return;path=plan()||[];if(!path.length){status.textContent='BLOCKED — No safe route';return}if(path.length===1){status.textContent='ARRIVED — Already at goal';return}step=0;status.textContent='NAVIGATING';timer=setInterval(()=>{step++;robot=[...path[step]];render();if(step>=path.length-1){stopMotion();path=[];status.textContent='ARRIVED — Destination reached'}},450);render()});
+document.getElementById('stop').addEventListener('click',()=>{stopMotion();path=[];render();status.textContent='STOPPED — Virtual motion stopped'});
+document.getElementById('reset').addEventListener('click',()=>{stopMotion();walls=new Set(originalWalls);robot=[1,1];goal=[4,4];obstacleMode=false;modeButton.textContent='Mode: Choose goal';modeButton.setAttribute('aria-pressed','false');recalc()});recalc();
+})();
+</script>
 </body></html>
