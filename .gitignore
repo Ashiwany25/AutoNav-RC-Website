@@ -1,2 +1,15 @@
 
 AutoNav-RC.apk
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+*.bak
+.venv/
+__pycache__/
+.dart_tool/
+build/
