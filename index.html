@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1120">
+<title>AutoNav RC | Indoor Navigation Simulator</title>
+<style>
+:root{color-scheme:dark;font-family:Inter,system-ui,Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#080e1b;color:#eaf0ff;line-height:1.65}
+header,main,footer{max-width:1050px;margin:auto;padding:24px}
+header{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:22px;letter-spacing:.2px}
+.tag{color:#93c5fd;font-size:13px}
+.hero{padding:65px 24px 45px;text-align:center}
+h1{font-size:clamp(36px,6vw,64px);line-height:1.12;margin:12px 0}
+h2{font-size:26px;margin-top:0}
+p{color:#b8c5de}
+.hero p{max-width:660px;margin:18px auto 30px}
+.button{display:inline-block;padding:14px 28px;background:#2563eb;
+color:#fff;text-decoration:none;border-radius:12px;font-weight:750}
+.button:hover{background:#1d4ed8}
+.meta{margin:18px;color:#93a4be;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:#111c31;border:1px solid #26364f;border-radius:18px;padding:24px}
+.card h3{margin:0 0 8px}
+section{margin:45px 0}
+.steps{padding-left:23px;color:#dce6f8}
+.steps li{padding:7px 0}
+.warning{border-left:4px solid #f59e0b;background:#282119;
+padding:20px;border-radius:10px}
+code{overflow-wrap:anywhere;color:#93c5fd}
+footer{border-top:1px solid #26364f;color:#93a4be;font-size:13px}
+</style>
+</head>
+<body>
+<header><div class="logo">🚗 AutoNav RC</div>
+<div class="tag">Android + Python simulator</div></header>
+<main>
+<div class="hero">
+<div class="tag">INDOOR AUTONOMOUS NAVIGATION PROJECT</div>
+<h1>Control. Map. Navigate.</h1>
+<p>Explore an Android-controlled indoor navigation simulator with
+saved occupancy maps, safe route planning, live virtual movement and
+emergency stop behavior.</p>
+<span class="button">Android APK — Development Preview</span>
+<div class="meta">Development simulator build · Android · Requires a paired local backend</div>
+</div>
+
+<section><h2>Features</h2><div class="grid">
+<div class="card"><h3>📱 Android control</h3>
+<p>Standalone Flutter app that connects to a local controller over HTTPS.</p></div>
+<div class="card"><h3>🗺️ Saved indoor map</h3>
+<p>Choose reachable destinations on a saved occupancy-grid map.</p></div>
+<div class="card"><h3>🧭 A* route planning</h3>
+<p>Plan safe virtual routes while preserving obstacle clearance.</p></div>
+<div class="card"><h3>🛑 Safety controls</h3>
+<p>STOP command, heartbeat monitoring and connection-loss handling.</p></div>
+<div class="card"><h3>🔐 Local pairing</h3>
+<p>Pair with a local backend using a temporary code and bearer authentication.</p></div>
+<div class="card"><h3>🔁 Dynamic replanning</h3>
+<p>Simulation support for changed destinations and detected obstacles.</p></div>
+</div></section>
+
+<section><h2>Installation</h2>
+<ol class="steps">
+<li>Download the APK on an Android phone.</li>
+<li>Allow installation from the selected source if Android requests it.</li>
+<li>Install and open <strong>AutoNav RC</strong>.</li>
+<li>Run the companion FastAPI backend on a trusted local network.</li>
+<li>Pair the phone and activate the controller through the app's settings.</li>
+<li>Open Saved Map Navigation, choose a safe cell and start simulation.</li>
+</ol></section>
+
+<section class="warning"><strong>Important: Development version</strong>
+<p>This build uses a development-specific controller address and trusted
+certificate. Installing the APK alone will not provide an operational
+controller. The car movements are currently simulated: no physical
+motors are controlled. Do not use this build to control an unattended
+physical vehicle. Public multi-device onboarding is not yet supported.</p>
+</section>
+
+<section><h2>Release integrity</h2>
+<p>The SHA-256 checksum is included in
+<a href="SHA256SUMS.txt" style="color:#93c5fd">SHA256SUMS.txt</a>.
+Compare it with the downloaded APK to verify file integrity.</p>
+</section>
+</main>
+<footer>AutoNav RC · Simulator development release · 2026</footer>
+</body></html>
