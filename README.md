@@ -4,12 +4,12 @@
 # 🚗 AutoNav RC
 ### Intelligent Indoor Autonomous Navigation System
 
-**An Android-controlled autonomous RC car project built with Flutter, Python, FastAPI, occupancy-grid mapping, and A* path planning.**
+**An Android-controlled autonomous robotics project featuring occupancy-grid mapping, A* path planning, sensor fusion, localization, and safety-aware navigation.**
 
 <br>
 
-[![Live Website](https://img.shields.io/badge/🌐_LIVE_WEBSITE-Visit_Now-2563EB?style=for-the-badge)](https://ashiwany25.github.io/AutoNav-RC-Website/)
-[![Source Code](https://img.shields.io/badge/GitHub-SOURCE_CODE-181717?style=for-the-badge&logo=github)](https://github.com/Ashiwany25/AutoNav-RC-Website)
+[![Live Website](https://img.shields.io/badge/LIVE_WEBSITE-Visit_Project-2563EB?style=for-the-badge)](https://ashiwany25.github.io/AutoNav-RC-Website/)
+[![GitHub Repository](https://img.shields.io/badge/GITHUB-Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/Ashiwany25/AutoNav-RC-Website)
 
 <br>
 
@@ -18,45 +18,36 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white)
-![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=github&logoColor=white)
 
-**Project Status:** Working Android Simulator | Physical RC Car Development Planned
+<br>
+
+![Status](https://img.shields.io/badge/Simulator_Milestone-Complete-brightgreen)
+![Hardware](https://img.shields.io/badge/Physical_Hardware-Integration_Pending-orange)
+![License](https://img.shields.io/badge/Project-Development_Prototype-blue)
+
+---
+
+### 🌐 [Visit Live Website](https://ashiwany25.github.io/AutoNav-RC-Website/) | 💻 [Explore Source Code](https://github.com/Ashiwany25/AutoNav-RC-Website)
 
 </div>
 
----
+## 📖 About the Project
 
-## 🌐 Live Demo & Project Links
+**AutoNav RC** is an indoor autonomous navigation project designed to build a robotic vehicle capable of learning an indoor environment and navigating autonomously to any reachable destination selected through an Android application.
 
-| Resource | Link |
-|---|---|
-| 🌍 **Live Website** | **[Open AutoNav RC Website](https://ashiwany25.github.io/AutoNav-RC-Website/)** |
-| 💻 **GitHub Repository** | **[View Complete Project Source](https://github.com/Ashiwany25/AutoNav-RC-Website)** |
-| 📱 **Android Demo Release** | **[View Available Releases](https://github.com/Ashiwany25/AutoNav-RC-Website/releases)** |
-| 🧪 **Automated Tests** | [View Python Tests](https://github.com/Ashiwany25/AutoNav-RC-Website/tree/main/tests) |
-| 📲 **Flutter Application** | [View Android Source](https://github.com/Ashiwany25/AutoNav-RC-Website/tree/main/mobile_app/autonav_rc/lib) |
+The project combines:
 
-> **Note:** The existing APK is a development simulator build. It requires the configured local FastAPI backend and is not yet a universal controller for physical RC cars.
+- **Flutter** for Android-based control and visualization.
+- **FastAPI** for backend communication and navigation services.
+- **A* pathfinding** for obstacle-aware route planning.
+- **Occupancy-grid mapping** for representing indoor environments.
+- **Wheel odometry and heading fusion** for position estimation.
+- **Sensor telemetry validation** for future hardware integration.
+- **Watchdog-based safety mechanisms** for reliable movement control.
 
----
+The current implementation includes a working Android-connected navigation simulator and offline-tested hardware-facing software modules.
 
-## 📌 Project Overview
-
-**AutoNav RC** is an indoor autonomous navigation project designed to let users control a robotic vehicle through an Android application.
-
-The long-term objective is to create a physical RC car capable of exploring an indoor environment, generating a map, identifying safe routes, and automatically navigating to any reachable destination selected by the user.
-
-The current implementation demonstrates these capabilities through an Android-connected Python simulator.
-
-### Core objectives
-
-- Create and visualize indoor occupancy-grid maps.
-- Allow users to select destinations by tapping the Android map.
-- Generate safe routes using the **A* pathfinding algorithm**.
-- Simulate autonomous movement along planned routes.
-- Replan routes when obstacles or destinations change.
-- Provide reliable STOP commands and connection monitoring.
-- Build toward sensor-based autonomous navigation on a physical RC car.
+> **Development status:** Simulator and offline software integration milestones completed. Physical RC car hardware integration and real-world autonomous navigation validation remain pending.
 
 ---
 
@@ -64,18 +55,24 @@ The current implementation demonstrates these capabilities through an Android-co
 
 | Feature | Description | Status |
 |---|---|---|
-| 📱 Android application | Flutter-based user interface | ✅ Working |
-| 🌐 Wi-Fi communication | Android-to-FastAPI connectivity | ✅ Working |
-| 🔒 HTTPS and pairing | Certificate-based HTTPS and pairing-token authentication | ✅ Working in development |
-| 🗺️ Indoor map | Saved occupancy-grid visualization | ✅ Working |
-| 🎯 Tap-to-go | Select safe reachable destinations | ✅ Working in simulator |
-| 🧭 A* path planning | Find routes through safe cells | ✅ Working |
-| 🚧 Dynamic obstacles | Update obstacles and replan routes | ✅ Implemented in simulation |
-| 🔄 Destination updates | Change destination during navigation | ✅ Implemented |
-| 🛑 STOP navigation | Stop virtual movement and verify state | ✅ Tested |
-| 💓 Heartbeat watchdog | Detect loss of controller communication | ✅ Automated tests passed |
-| 📦 Android APK | Standalone Android development build | ✅ Built and tested |
-| 🤖 Physical RC car | Real sensor and motor integration | 🔄 Planned |
+| 📱 Android application | Flutter-based controller | ✅ Tested |
+| 📡 Wi-Fi communication | Local Android-to-backend connection | ✅ Tested |
+| 🔐 HTTPS pairing | Authentication and controller verification | ✅ Development-tested |
+| 🗺️ Saved indoor mapping | Occupancy-grid representation | ✅ Simulator-tested |
+| 🎯 Tap-to-go navigation | Select a safe destination on the map | ✅ Simulator-tested |
+| 🧭 A* route planning | Safe route generation | ✅ Tested |
+| 🚧 Dynamic obstacles | Obstacle updates and route replanning | ✅ Simulator-tested |
+| 🔄 Destination updates | Change destinations while navigating | ✅ Tested |
+| 🛑 STOP command | Verified simulator stopping behavior | ✅ Tested |
+| 💓 Heartbeat watchdog | Detect communication loss | ✅ Tested |
+| ⚙️ Motor-command protocol | Hardware communication foundation | ✅ Offline-tested |
+| 📊 Sensor telemetry | Validate sensor readings | ✅ Offline-tested |
+| ⚙️ Wheel odometry | Estimate relative robot motion | ✅ Offline-tested |
+| 🧭 Heading fusion | Combine simulated heading estimates | ✅ Offline-tested |
+| 📡 Range-based mapping | Generate occupancy information | ✅ Offline-tested |
+| 🗺️ Localization-aware planning | Use validated pose estimates | ✅ Offline-tested |
+| 🔌 ESP32 integration | Real hardware communication and control | ⏳ Pending |
+| 🤖 Physical autonomy | Navigate a real indoor environment | ⏳ Pending |
 
 ---
 
@@ -83,41 +80,69 @@ The current implementation demonstrates these capabilities through an Android-co
 
 ```mermaid
 flowchart TD
-    A["📱 Flutter Android Application"]
-    B["🔐 HTTPS + Device Pairing"]
-    C["⚙️ Python FastAPI Backend"]
-    D["🗺️ Saved Occupancy Grid"]
-    E["🧭 A* Route Planner"]
-    F["🛡️ Navigation Safety Controller"]
-    G["🚗 Virtual Robot Simulator"]
-    H["💓 Heartbeat Watchdog"]
+    A["Flutter Android Application"]
+    B["HTTPS Communication + Pairing"]
+    C["Python FastAPI Backend"]
+
+    D["Indoor Occupancy Map"]
+    E["A* Navigation Planner"]
+    F["Navigation Safety Controller"]
+    G["Virtual Robot Simulator"]
+
+    H["Sensor Telemetry Validation"]
+    I["Wheel Odometry"]
+    J["Heading Fusion"]
+    K["Occupancy Mapping"]
+    L["Localization-Aware Planning"]
+    M["Simulated Motor Gateway"]
 
     A <--> B
     B <--> C
+
     C --> D
     D --> E
     E --> F
     F --> G
-    G -->|Position and status| C
-    C -->|Navigation feedback| A
-    C --> H
-    H -->|Stop on timeout| G
+    G --> C
+
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+    L --> M
+
+    N["Future Physical ESP32 Controller"]
+    M -.-> N
+
+    C --> O["Heartbeat and STOP Safety"]
+    O --> G
 ```
 
-### How the system works
-
-1. The user opens the AutoNav RC application.
-2. The phone connects to the local FastAPI controller over HTTPS.
-3. The user selects a destination on the saved indoor map.
-4. The backend validates the destination and calculates a safe route.
-5. The virtual robot follows the planned path.
-6. Updated position and navigation status appear in the Android app.
-7. The user can stop navigation or choose another destination.
-8. The heartbeat watchdog monitors connectivity during navigation.
+**Architecture note:** The Android/FastAPI simulator is operational. The sensor-processing and hardware-interface modules have been tested offline; their end-to-end connection to physical hardware remains future work.
 
 ---
 
-## 🗂️ Project Structure
+## 🛠️ Technology Stack
+
+| Layer | Technologies |
+|---|---|
+| Android development | Flutter, Dart |
+| Backend | Python, FastAPI |
+| Path planning | A* Algorithm |
+| Indoor mapping | Occupancy Grid |
+| Relative localization | Wheel Odometry |
+| Orientation estimation | Heading Fusion |
+| Sensor processing | Telemetry Validation |
+| Safety | STOP, Heartbeat Watchdog |
+| Authentication | HTTPS, Pairing Tokens |
+| Hardware preparation | Serial Motor Protocol, ESP32 Scaffold |
+| Automated testing | Python unittest, Flutter Test |
+| Deployment | Android APK, GitHub Pages |
+| Version control | Git, GitHub |
+
+---
+
+## 📁 Project Structure
 
 ```text
 AutoNav-RC-Website/
@@ -129,10 +154,13 @@ AutoNav-RC-Website/
 │   └── ...
 │
 ├── navigation/
-│   └── Python navigation and safety modules
+│   └── A* planning and safety modules
 │
 ├── mapping/
-│   └── Indoor mapping modules
+│   └── Indoor mapping and estimation modules
+│
+├── tests/
+│   └── Python automated tests
 │
 ├── mobile_app/
 │   └── autonav_rc/
@@ -143,123 +171,161 @@ AutoNav-RC-Website/
 │       ├── test/
 │       └── pubspec.yaml
 │
-├── tests/
-│   └── Python backend tests
-│
 ├── media/
-│   └── Website screenshots and demo media
+│   └── Website demonstration media
 │
 ├── index.html
 ├── README.md
 └── .gitignore
 ```
 
----
-
-## 🛠️ Technology Stack
-
-| Category | Technologies |
-|---|---|
-| Mobile application | Flutter, Dart |
-| Backend API | Python, FastAPI |
-| Route planning | A* Algorithm |
-| Environment representation | 2D Occupancy Grid |
-| Obstacle handling | Safety checks and dynamic replanning |
-| Network communication | HTTP, HTTPS |
-| Authentication | Device pairing, bearer tokens |
-| Testing | Python unittest, Flutter Test |
-| Android deployment | Flutter Release APK |
-| Website hosting | GitHub Pages |
-| Version control | Git, GitHub |
+Some hardware-integration source files may exist only in the latest local development project until they are pushed to GitHub.
 
 ---
 
-## 🧪 Testing & Validation
+## 🧠 Algorithms and Techniques
 
-The latest reported development tests completed successfully.
+### 1. A* Pathfinding
 
-<div align="center">
+The navigation planner searches for a safe route between the robot's current position and a selected destination.
 
-| Verification | Result |
+It considers explored free cells, obstacles, and the configured obstacle-clearance rules.
+
+### 2. Occupancy Grid Mapping
+
+The environment is represented using grid cells.
+
+- **Free:** Traversable space.
+- **Occupied:** Detected obstacle.
+- **Unknown:** Not yet explored.
+
+Unknown regions are treated conservatively during navigation.
+
+### 3. Dynamic Obstacle Replanning
+
+When obstacles change in the simulator, the navigation controller evaluates whether the existing route remains safe and can calculate an alternative route.
+
+### 4. Wheel Odometry
+
+Encoder measurements are used to estimate relative robot displacement and turning.
+
+The current odometry module is tested with simulated measurements.
+
+### 5. Heading Fusion
+
+Heading estimates from wheel odometry and simulated IMU measurements are combined, with validation for stale or implausible readings.
+
+### 6. Localization-Aware Planning
+
+The planning foundation uses validated pose information and rejects unsafe localization conditions.
+
+### 7. Safety Monitoring
+
+The system includes:
+
+- Emergency STOP command handling.
+- Heartbeat monitoring.
+- Connection-loss detection.
+- Navigation-state verification.
+- Obstacle-clearance checks.
+- Command validation.
+- Simulated motor watchdog behavior.
+
+Physical safety mechanisms will require independent testing on real hardware.
+
+---
+
+## 🧪 Testing and Validation
+
+### Latest development results
+
+| Test Suite | Reported Result |
 |---|---|
-| Python backend tests | ✅ 82 Passed |
-| Flutter tests | ✅ 104 Passed |
-| **Total automated tests** | **✅ 186 Passed** |
+| Python backend + integration tests | ✅ 146 Passed |
+| Flutter automated tests | ✅ 106 Passed |
 | Flutter static analysis | ✅ No issues |
-| Android APK release build | ✅ Successful |
-| Wi-Fi connectivity without USB | ✅ Verified |
-| Navigation arrival state | ✅ `ARRIVED` |
-| Navigation STOP state | ✅ `STOPPED` |
+| Standalone Android APK | ✅ Built and tested |
+| Android Wi-Fi connectivity | ✅ Verified |
+| Autonomous simulator arrival | ✅ ARRIVED |
+| Simulator STOP | ✅ STOPPED |
+| Sensor telemetry tests | ✅ Passed |
+| Odometry and heading-fusion tests | ✅ Passed |
+| Offline mapping and navigation integration | ✅ Passed |
 
-</div>
+**Note:** The 146 Python tests and 106 Flutter tests were verified at different development stages. They should be rerun together after the latest changes before declaring a new final release.
 
-Tests cover API requests, A* navigation, obstacle safety, destination changes, local pairing, heartbeat handling, simulator state transitions, and Flutter interface behavior.
+### Run Python tests
 
-**Testing limitation:** The successful tests validate the current software simulator and development environment, not the safety of an actual physical vehicle.
+```bash
+python -m unittest discover -s tests -q
+```
+
+### Run Flutter tests
+
+```bash
+cd mobile_app/autonav_rc
+
+flutter analyze
+flutter test
+```
 
 ---
 
 ## 📲 Android Application
 
-The Flutter application provides interfaces for:
+The Flutter application provides:
 
-- Manual Control
-- Indoor Map
+- Manual Control interface
+- Indoor Map visualization
 - Saved Map Navigation
+- Destination selection
+- Live simulator position updates
 - Controller Connection Settings
 - Device Pairing
+- Navigation STOP
 - Dynamic Obstacle Simulation
-- STOP Navigation
 
-The development application has been tested on an Android phone over a local Wi-Fi connection.
+### Source code
 
-### Android application source
+[View Flutter Android Application](https://github.com/Ashiwany25/AutoNav-RC-Website/tree/main/mobile_app/autonav_rc/lib)
 
-**[Explore the Flutter App →](https://github.com/Ashiwany25/AutoNav-RC-Website/tree/main/mobile_app/autonav_rc/lib)**
+### Android releases
 
-### Development APK
+[Check Available Development APKs](https://github.com/Ashiwany25/AutoNav-RC-Website/releases)
 
-**[Check GitHub Releases →](https://github.com/Ashiwany25/AutoNav-RC-Website/releases)**
-
-APK availability depends on whether a release asset has been published.
+The development APK requires its configured local controller and HTTPS certificate.
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### Requirements
 
-- Python and pip
+- Python
 - Flutter SDK
 - Android SDK
-- Android phone or emulator
+- Android phone
 - Local Wi-Fi network
 - Project dependencies
-- Development HTTPS certificate configured for the backend
+- Locally configured HTTPS certificate and private key
 
-### 1. Clone the repository
+### Clone
 
 ```bash
 git clone https://github.com/Ashiwany25/AutoNav-RC-Website.git
 cd AutoNav-RC-Website
 ```
 
-### 2. Set up the Python backend
+### Python environment
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-Install the required dependencies for your local project environment.
+Install the required dependencies for the backend environment.
 
-### 3. Start the local backend
-
-The existing development setup uses FastAPI, device pairing, dedicated heartbeats, and HTTPS.
-
-The HTTPS certificate and private key must be configured locally. Private keys are intentionally not provided in this repository.
-
-### 4. Open the Flutter application
+### Flutter application
 
 ```bash
 cd mobile_app/autonav_rc
@@ -267,80 +333,101 @@ flutter pub get
 flutter run
 ```
 
-Configure the backend address and trusted development certificate as required.
+**Setup limitation:** The public repository is a development-source snapshot and may require locally generated Android platform files, dependencies, controller configuration, and trusted certificates to build on a new machine.
 
-**Important:** The uploaded source is a development snapshot. Additional Android platform files and local configuration may be required for a clean build on a new machine.
-
----
-
-## 🛡️ Safety Mechanisms
-
-AutoNav RC includes multiple software safety measures for simulation:
-
-- Destination validation before navigation
-- Obstacle-clearance checks
-- Rejection of unknown and occupied map cells
-- Dedicated heartbeat monitoring
-- STOP command handling
-- Navigation-state verification
-- Controller pairing and basic ownership checks
-- Prevention of automatic navigation restart after certain connection failures
-
-These mechanisms are currently designed and tested for the simulator.
-
-A physical RC car will require additional motor-level emergency stop, hardware watchdogs, reliable sensor feedback, and real-world safety testing.
+The default development controller configuration is not a production-ready device-onboarding system.
 
 ---
 
-## 🧭 Development Roadmap
+## 🛡️ Safety and Security
+
+AutoNav RC uses local HTTPS authentication, device pairing, and navigation safety mechanisms.
+
+The software is designed to reject invalid navigation targets and prevent unsafe simulator behavior when movement commands or heartbeat messages fail validation.
+
+However, **simulation safety is not equivalent to physical vehicle safety**.
+
+Before operating real motors, the project must implement and test:
+
+- Hardware-level emergency stop.
+- Motor-controller watchdog.
+- Sensor failure handling.
+- Power-system protection.
+- Safe startup and shutdown.
+- Reliable physical localization.
+- Collision avoidance on real hardware.
+
+---
+
+## 🗺️ Development Roadmap
+
+### Phase 1 — Android Application and Simulator
 
 - [x] Flutter Android interface
-- [x] Python FastAPI backend
-- [x] Saved indoor occupancy-grid simulation
+- [x] FastAPI backend
+- [x] Saved occupancy map
 - [x] A* route planning
-- [x] Dynamic obstacle replanning
-- [x] Destination update support
-- [x] HTTPS pairing and controller authentication
-- [x] Dedicated heartbeat monitoring
-- [x] STOP-state verification
-- [x] Standalone development APK
-- [x] Public GitHub Pages website
-- [ ] General-purpose secure controller onboarding
-- [ ] ESP32 and motor-driver integration
-- [ ] Real distance-sensor integration
-- [ ] Wheel odometry and localization
-- [ ] Real indoor map generation
-- [ ] Physical autonomous tap-to-go navigation
-- [ ] Multi-environment performance and safety evaluation
+- [x] Autonomous navigation simulation
+- [x] STOP control
+- [x] Local HTTPS and pairing
+- [x] Standalone Android APK
+
+### Phase 2 — Hardware-Facing Software Foundations
+
+- [x] Motor-command protocol foundation
+- [x] Sensor telemetry validation
+- [x] Wheel odometry
+- [x] Heading fusion
+- [x] Simulated range-based occupancy mapping
+- [x] Localization-aware route planning foundation
+- [x] Simulated motor-command gateway
+- [x] Offline integration tests
+
+### Phase 3 — Physical Robot Integration
+
+- [ ] Assemble physical RC car
+- [ ] Integrate ESP32 and motor driver
+- [ ] Implement and validate real motor-control firmware
+- [ ] Connect wheel encoders, IMU and distance sensors
+- [ ] Calibrate odometry and sensors
+- [ ] Implement reliable real-world indoor localization and mapping
+- [ ] Integrate live sensor-based obstacle avoidance
+- [ ] Validate arbitrary destination navigation in multiple indoor environments
+- [ ] Complete hardware safety testing
+
+### Phase 4 — Public Device Support
+
+- [ ] Secure per-device controller onboarding
+- [ ] General-purpose configuration for different cars
+- [ ] Production certificate provisioning
+- [ ] Final public Android release
 
 ---
 
-## ⚠️ Current Limitations
+## ⚠️ Current Project Limitations
 
-AutoNav RC is currently a **software-based indoor navigation simulator**.
+The project currently demonstrates **autonomous indoor navigation in simulation** and includes offline-tested software foundations for future hardware integration.
 
-The project does not yet include a fully assembled autonomous RC car, real sensor-based localization, physical motor control, or validated autonomous driving in an actual house.
+It does not yet demonstrate fully autonomous navigation on a physical RC car.
 
-The development APK is configured for a specific backend and should not be considered a general-purpose consumer application.
+The project is intended for robotics learning, research, prototyping, and further development.
 
 ---
-
-## 🌍 Explore the Project
 
 <div align="center">
 
-### Want to see AutoNav RC in action?
+## 🌐 Explore AutoNav RC
 
-**[🌐 VISIT LIVE WEBSITE](https://ashiwany25.github.io/AutoNav-RC-Website/)**
+### [Visit Live Website](https://ashiwany25.github.io/AutoNav-RC-Website/)
 
-**[💻 VIEW GITHUB SOURCE CODE](https://github.com/Ashiwany25/AutoNav-RC-Website)**
+### [View Complete GitHub Repository](https://github.com/Ashiwany25/AutoNav-RC-Website)
 
-**[📱 EXPLORE ANDROID APP CODE](https://github.com/Ashiwany25/AutoNav-RC-Website/tree/main/mobile_app/autonav_rc/lib)**
+### [Explore Android App Source](https://github.com/Ashiwany25/AutoNav-RC-Website/tree/main/mobile_app/autonav_rc/lib)
 
 ---
 
-**Built with Flutter, Python, FastAPI, and A* Path Planning**
+**Built with Flutter, Python, FastAPI, A* Navigation, and Robotics Algorithms**
 
-*AutoNav RC — Mapping indoor environments. Planning safe paths. Moving toward autonomous navigation.*
+*AutoNav RC — Mapping indoor spaces. Planning safe routes. Building toward physical autonomy.*
 
 </div>
