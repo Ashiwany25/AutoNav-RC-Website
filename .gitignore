@@ -1,15 +1,35 @@
-
-AutoNav-RC.apk
+# Private credentials and certificates
 .env
 .env.*
+!.env.example
 *.pem
 *.key
 *.p12
 *.pfx
-*.keystore
 *.jks
-*.bak
+*.keystore
+key.properties
+local.properties
+google-services.json
+GoogleService-Info.plist
+# Dependencies and builds
 .venv/
+venv/
 __pycache__/
+*.pyc
+.pytest_cache/
 .dart_tool/
-build/
+.gradle/
+**/build/
+.flutter-plugins*
+*.apk
+*.aab
+# Backup/data outputs
+*backup*
+*.bak
+*.sqlite
+*.db
+*.pkl
+repo_sync_backups/
+.DS_Store
+# Existing website files index.html and media/ are intentionally tracked

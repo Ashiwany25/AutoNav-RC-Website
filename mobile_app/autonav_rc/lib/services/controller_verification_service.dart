@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:http/http.dart' as http;
 
+import 'api_config.dart';
 import 'controller_settings_service.dart';
 import 'local_https_client.dart';
 
@@ -17,7 +18,7 @@ class ControllerVerificationResult {
 
 class ControllerVerificationService {
   ControllerVerificationService({
-    this.trustedHost = '192.168.1.13',
+    this.trustedHost = autoNavWifiHost,
     this.port = 8443,
     this._clientFactory,
   });

@@ -7,10 +7,15 @@ const bool autoNavWifiMode = bool.fromEnvironment(
   defaultValue: false,
 );
 
-const String autoNavWifiHost = '192.168.1.13';
+// Change this only for a controller whose TLS certificate has been enrolled.
+// A different IP without a matching certificate will still fail closed.
+const String autoNavWifiHost = String.fromEnvironment(
+  'AUTONAV_WIFI_HOST',
+  defaultValue: '192.168.1.13',
+);
 
 const String autoNavApiOrigin = autoNavWifiMode
-    ? 'https://192.168.1.13:8443'
+    ? 'https://$autoNavWifiHost:8443'
     : 'http://127.0.0.1:8000';
 
 http.Client createAutoNavTransport() {

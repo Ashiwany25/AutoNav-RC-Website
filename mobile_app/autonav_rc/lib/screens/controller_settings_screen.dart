@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../services/api_config.dart';
 import '../services/controller_activation_service.dart';
 import '../services/controller_runtime_gate.dart';
 import '../services/controller_settings_service.dart';
@@ -46,7 +47,7 @@ class _ControllerSettingsScreenState extends State<ControllerSettingsScreen> {
       if (!mounted) return;
 
       setState(() {
-        hostController.text = settings?.host ?? '192.168.1.13';
+        hostController.text = settings?.host ?? autoNavWifiHost;
         savedOrigin = settings?.origin;
 
         message = settings == null
